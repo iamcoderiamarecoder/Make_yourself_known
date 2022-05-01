@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Homepage{% endblock title %}
+
+
+
+
+{% block body %}
+
+<style>
+    .rounded-2 {
+        height: 50px;
+       
+</style>
+
+
+
+
+
+
+{% for i in investors1|slice:"1: "%}
+
+<a href="{{i.link}}">
+    <img src="{{i.image_link}}" title="{{i.name}}"  class="rounded-2" alt="{{i.name}}">
+</a>
+
+{% endfor %}
+
+
+
+{% endblock body %}

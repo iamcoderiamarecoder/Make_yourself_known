@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+
+
+{% if id %}
+
+
+<div class="container my-4">
+    <strong> Your detail's token number ->{{id}}</strong>
+
+</div>
+
+{% else %}
+
+<div class="container my-4">
+
+    <strong>Fill the Form and Register</strong>
+</div>
+{% endif %}
+
+<div class="container my-3">
+
+    <form action="/add" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+
+
+        </div>
+
+
+        <div>
+
+            <div class=" mb-3">
+                <label for="link" class="form-label">Your Link</label>
+                <input type="text" class="form-control" id="link" name="link" required>
+
+            </div>
+
+
+            <div class=" mb-3">
+                <label for="image_link" class="form-label">Image link</label>
+                <input type="text" class="form-control" id="image_link" name="image_link" required>
+
+                <div>
+
+                    <button type="submit" class="btn btn-primary my-4">Submit</button>
+    </form>
+    <button onclick="window.location.href = '/khalti_request';">
+        Click Here
+    </button>
+
+
+
+
+</div>
+{% endblock body %}
