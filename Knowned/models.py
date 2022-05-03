@@ -15,3 +15,16 @@ class investors(models.Model):
 
     def __str__(self):
         return self.name 
+
+
+
+
+
+
+class About(models.Model):
+    title = models.CharField(max_length=25)
+    about_desc = models.TextField(default="")
+
+    def __str__(self):
+        return self.title+ " ----- "+self.about_desc[0:]
+    

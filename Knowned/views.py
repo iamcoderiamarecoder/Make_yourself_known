@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 
-from .models import investors
+from .models import investors,About
 from django.http import JsonResponse
 
 
@@ -40,18 +40,10 @@ def add(request):
             response= "Already Exist Try Changing the details."
             param= {"id":response}
             return render(request,"add.html",param)
-
-         
-           
-            
+             
     return render(request,"add.html")
 
 
-
-def khalti_request(request):
-
-
-    return render(request, "khaltirequest.html")
 
 
 def homepage(request):
@@ -61,7 +53,17 @@ def homepage(request):
     
     return render(request,"homepage.html",param)
 
+def about(request):
+    about_obj = About.objects.all()
+    first_obj=about_obj[0]
+    title=first_obj.title
+    about_desc= first_obj.about_desc
+    param= {"title":title ,"about_desc":about_desc}
+    return render(request,"about.html",param)
 
+
+def khalti_request(request):
+    return render(request, "khaltirequest.html")
 
 
 
@@ -78,7 +80,7 @@ class KhaltiVerifyView(View):
 
         }
         headers = {
-            "Authorization": "Key test_secret_key_bc0580e7bf264493afbc37e253a179a3"
+            "Authorization": "live_secret_key_a9aecd4d0ffd4f0f9001e780df16bcf3"
         }
 
        # order_obj = investors.objects.get(id=o_id)
